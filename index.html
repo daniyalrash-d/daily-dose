@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniyal's Daily Dose</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header role="banner">
+    <h1 tabindex="0">Daniyal's Daily Dose</h1>
+    <p tabindex="0">History, humor, tips &amp; trivia — delivered fresh every day.</p>
+  </header>
+
+  <main role="main" aria-label="Daily dose content">
+    <section id="history" aria-labelledby="history-heading">
+      <h2 id="history-heading">🗓 On This Day in History</h2>
+      <div id="history-list" role="list" aria-live="polite" aria-busy="true">
+        <!-- JS will populate event cards here -->
+        <p>Loading events...</p>
+      </div>
+    </section>
+
+    <section id="joke" aria-labelledby="joke-heading">
+      <h2 id="joke-heading">😂 Joke of the Day</h2>
+      <p id="joke-text" tabindex="0" aria-live="polite">Loading joke...</p>
+    </section>
+
+    <section id="tip" aria-labelledby="tip-heading">
+      <h2 id="tip-heading">🛠 Life Tip</h2>
+      <p id="tip-text" tabindex="0" aria-live="polite">Loading tip...</p>
+    </section>
+
+    <section id="interesting" aria-labelledby="interesting-heading">
+      <h2 id="interesting-heading">🌟 Something Interesting</h2>
+      <p id="interesting-text" tabindex="0" aria-live="polite">Loading...</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p tabindex="0">&copy; 2025 Daniyal Rasheed • Updated daily with a smile 🙂</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+:root {
+  /* Colors */
+  --color-bg: #f4f6f8;
+  --color-text: #333;
+  --color-primary: #004466;
+  --color-primary-light: #007799;
+  --color-primary-dark: #003344;
+  --color-section-bg: #fff;
+  --color-section-shadow: rgba(0, 0, 0, 0.05);
+  --color-card-bg: #f9f9f9;
+  --color-card-border: #ddd;
+  --color-footer-bg: var(--color-primary);
+  --color-footer-border: var(--color-primary-dark);
+
+  /* Typography */
+  --font-family: 'Inter', sans-serif;
+  --font-size-base: 16px;
+  --font-weight-bold: 800;
+  --font-weight-semibold: 600;
+  --font-weight-normal: 400;
+
+  /* Spacing */
+  --spacing-base: 1rem;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px var(--color-section-shadow);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-text: #e0e0e0;
+    --color-primary: #00bcd4;
+    --color-primary-light: #80cbc4;
+    --color-primary-dark: #111;
+    --color-section-bg: #1e1e1e;
+    --color-section-shadow: transparent;
+    --color-card-bg: #222;
+    --color-card-border: #444;
+    --color-footer-bg: #1f1f1f;
+    --color-footer-border: var(--color-primary-dark);
+  }
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0 var(--spacing-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  text-align: center;
+  padding: calc(var(--spacing-base) * 2) var(--spacing-base);
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
+  color: white;
+  border-bottom: 3px solid var(--color-primary-dark);
+  user-select: none;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Layout */
+main {
+  max-width: 800px;
+  margin: calc(var(--spacing-base) * 2) auto;
+}
+
+section {
+  background-color: var(--color-section-bg);
+  padding: calc(var(--spacing-base) * 1.5);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+section h2 {
+  margin-bottom: var(--spacing-base);
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* History event card styling */
+#history-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-base);
+}
+
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-base);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 10px;
+  padding: var(--spacing-base);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.event-card:hover,
+.event-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.event-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover img,
+.event-card:focus-within img {
+  transform: scale(1.05);
+}
+
+.event-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: calc(var(--spacing-base) * 1.5);
+  font-size: 0.9rem;
+  background-color: var(--color-footer-bg);
+  color: white;
+  border-top: 3px solid var(--color-footer-border);
+  user-select: none;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  #history-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .event-card img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Accessibility improvements */
+a,
+button {
+  outline-offset: 3px;
+}
+
+a:focus,
+button:focus,
+.event-card:focus-within {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 3px;
+}
+
+/* Animation: fade in on sections */
+section {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.15s;
+}
+
+section:nth-child(1) { animation-delay: 0.15s; }
+section:nth-child(2) { animation-delay: 0.3s; }
+section:nth-child(3) { animation-delay: 0.45s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
