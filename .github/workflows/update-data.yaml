@@ -22,7 +22,9 @@ jobs:
         run: npm install
 
       - name: Run update scripts
-        run: node updateJokes.js && node updateInteresting.js
+        run: |
+              node scripts/updateJokes.js
+              node scripts/updateInteresting.js
 
       - name: Commit and push changes
         run: |
